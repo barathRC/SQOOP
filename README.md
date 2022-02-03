@@ -8,7 +8,9 @@ bin/sqoop-eval --connect jdbc:mysql://localhost/test -username root -password ro
 
 MYSQL to HDFS
 
-bin/sqoop import --connect jdbc:mysql://localhost/test -username root -password root --table test2 -m1 hadoop fs -ls
+bin/sqoop import --connect jdbc:mysql://localhost/test -username root -password root --table test2 -m1 
+
+hadoop fs -ls
 
 --target-dir
 
