@@ -20,8 +20,17 @@ If you dont explicitly specify the -HIVE TABLE name then the source table name i
 
 Use --hive-home to speicfy the HIVE binary in case of multiple HIVE instances.
 
-SQOOP incremental LOAD parameters: --check-column --incremental (-append (Prim key or any column in which the max value for the last import i checked) / 
--lastmodified (a column in the source table should be a datetime. even if an exisiting record is updated this column can be checked with column name and check value params) ) --checkvalue
+SQOOP incremental LOAD parameters: --check-column --incremental (append / lastmodified) --last-value
+
+-append (Prim key or any column in which the max value for the last import i checked) 
+
+-lastmodified (a column in the source table should be a datetime. even if an exisiting record is updated this column can be checked with column name and check value params) ) 
+
+sqoop --create job job1 -- import jdbc -u -p  -table tbl1 --check-column 'id' --incremental (append / lastmodified) --last-value 5 will create the job
+
+You need to execute --sqoop -exec (job_name) to run the job. Everytime job runs , the last_value is updated automatically by SQOOP, unless you want to particularly specify the --last-value param.
+
+SQOOP internally stores the -last value updated value in the local metastore of the server where it runs. This can be checked by issuing -grep command with --incremental param
 
 --hive-overwrite will overwrite the existing table. used in ELT activity.
 
