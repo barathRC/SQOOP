@@ -34,4 +34,12 @@ SQOOP internally stores the -last value updated value in the local metastore of 
 
 --hive-overwrite will overwrite the existing table. used in ELT activity.
 
+SQQOP export will have export-dir as the HDFS path
+
+SQOOP export will not guarantee ATOMICITY. 100 INSERT or UPDATE statements will do a commit. So while in the 100 inserts u may see partial data.
+
+SQOOP export will export with multiple threads.
+
+SQQOP export with and --update key parameter will generate  UPDATE SET with WHERE clause filter and update the record in the destination relational table.
+
 ETL, ELT, Data transformation processing, HDFS as Data Lake, Data Analysis, Reporting, Business Insights
