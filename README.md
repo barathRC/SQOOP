@@ -20,6 +20,9 @@ If you dont explicitly specify the -HIVE TABLE name then the source table name i
 
 Use --hive-home to speicfy the HIVE binary in case of multiple HIVE instances.
 
+SQOOP incremental LOAD parameters: --check-column --incremental (-append (Prim key or any column in which the max value for the last import i checked) / 
+-lastmodified (a column in the source table should be a datetime. even if an exisiting record is updated this column can be checked with column name and check value params) ) --checkvalue
+
 --hive-overwrite will overwrite the existing table. used in ELT activity.
 
 ETL, ELT, Data transformation processing, HDFS as Data Lake, Data Analysis, Reporting, Business Insights
