@@ -14,7 +14,9 @@ If primary key is unevenly spread, then use a column that u identify as a split 
 
 SQOOP can copy data into a HIVE TABLE using --hive import. SQQOP needs Hive to be configured.
 
-SQOOP runs a local HIVE client in its own server in order to invoke the commands CREATE TABLE for the structure and LOAD DATA INPATH to move the data into HIVE WAREHOUSE.
+SQOOP runs a local HIVE client in its own server in order to invoke the commands CREATE TABLE for the structure in HIVE METASTORE and LOAD DATA INPATH to move the data into HIVE WAREHOUSE.
+
+If you dont explicitly specify the -HIVE TABLE name then the source table name is assigned to the HIVE TABLE
 
 Use --hive-home to speicfy the HIVE binary in case of multiple HIVE instances.
 
