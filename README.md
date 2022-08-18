@@ -43,3 +43,19 @@ SQOOP export will export with multiple threads.
 SQQOP export with and --update key parameter will generate  UPDATE SET with WHERE clause filter and update the record in the destination relational table.
 
 ETL, ELT, Data transformation processing, HDFS as Data Lake, Data Analysis, Reporting, Business Insights
+
+Diff b/w SQOOP and SQOOP2 is that SQOOP was just a client and SQOOP2 has a middle layer SQOOP Server to interact with EDW, Doc based sys and RDBMS
+
+You can have the connector string and credentials in a separate --options-file ".txt"
+sqoop import --options-file="~/creds.txt" --connect jdbc:mysql//dbserver.com/live --table orders
+sqoop import --options-file="~/creds-and-connec.txt" --table orders --check-column=id --incremental append --last-value 17092
+sqoop import --options-file="~/creds-and-connec.txt" --table orders --query 'select EMP_NO, NAME from employees where SAL > 100000'
+sqoop export --options-file="~/creds-and-connec.txt" --EXPORT-DIR /USER/HIVE/WAREHOUSE/RECOM-UPDATES --table recom
+sqoop import list tables --options-file="~/creds.txt" --connect jdbc:mysql//dbserver.com/live
+
+EVAL before running(prints op to console for previewing queries)
+sqoop eval --options-file="~/creds-and-connec.txt -e "SELECT * FROM emp lIMIT 50"
+
+
+
+
