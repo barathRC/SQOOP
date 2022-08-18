@@ -55,6 +55,8 @@ sqoop import --options-file="~/creds-and-connec.txt" --table orders --query 'sel
 
 sqoop export --options-file="~/creds-and-connec.txt" --EXPORT-DIR /USER/HIVE/WAREHOUSE/RECOM-UPDATES --table recom
 
+sqoop export --options-file="~/creds-and-connec.txt" --EXPORT-DIR /USER/HIVE/WAREHOUSE/RECOM-UPDATES --table cities --hive-table cities_hive --create-hive-table --hive-import --hive-home /user/hive/warehouse -m1
+
 sqoop import list tables --options-file="~/creds.txt" --connect jdbc:mysql//dbserver.com/live
 
 EVAL before running(prints op to console for previewing queries)
