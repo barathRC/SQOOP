@@ -40,7 +40,7 @@ SQOOP export will not guarantee ATOMICITY. 100 INSERT or UPDATE statements will 
 
 SQOOP export will export with multiple threads.
 
-SQQOP export with and --update key parameter will generate  UPDATE SET with WHERE clause filter and update the record in the destination relational table.
+SQQOP export with an --update key parameter will generate  UPDATE SET with WHERE clause filter and update the record in the destination relational table.
 
 ETL, ELT, Data transformation processing, HDFS as Data Lake, Data Analysis, Reporting, Business Insights
 
